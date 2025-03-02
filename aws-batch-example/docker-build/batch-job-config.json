@@ -1,63 +1,57 @@
 {
-    "attempts": [],
-    "container": {
-      "image": "public.ecr.aws/z7m3o1o1/bookworm_git:latest",
-      "command": [
-        "--",
-        "mahesh",
-        "is",
-        "testing",
-        "aws",
-        "batch"
-      ],
-      "executionRoleArn": "arn:aws:iam::521170656618:role/ecsTaskExecutionRole",
-      "volumes": [],
-      "environment": [
-        {
-          "name": "BUCKET_NAME",
-          "value": "mahesh-snake-charmer"
-        }
-      ],
-      "mountPoints": [],
-      "ulimits": [],
-      "taskArn": "arn:aws:ecs:ap-south-1:521170656618:task/AWSBatch-mahesh-compute-env-d53b5d19-24ae-360d-bee4-4cb470cab464/95a6a78fad134120831ba519e4f867b2",
-      "logStreamName": "mahesh-job-def-arm/default/95a6a78fad134120831ba519e4f867b2",
-      "networkInterfaces": [],
-      "resourceRequirements": [
-        {
-          "value": "1.0",
-          "type": "VCPU"
-        },
-        {
-          "value": "2048",
-          "type": "MEMORY"
-        }
-      ],
-      "secrets": [],
-      "networkConfiguration": {
-        "assignPublicIp": "ENABLED"
-      },
-      "fargatePlatformConfiguration": {
-        "platformVersion": "LATEST"
-      },
-      "runtimePlatform": {
-        "operatingSystemFamily": "LINUX",
-        "cpuArchitecture": "ARM64"
-      }
-    },
-    "createdAt": 1740895245638,
-    "dependsOn": [],
-    "eksAttempts": [],
-    "jobArn": "arn:aws:batch:ap-south-1:521170656618:job/122bd7a9-eb41-47aa-9a3e-518d785077b5",
-    "jobDefinition": "arn:aws:batch:ap-south-1:521170656618:job-definition/mahesh-job-def-arm:3",
-    "jobId": "122bd7a9-eb41-47aa-9a3e-518d785077b5",
-    "jobName": "try3",
-    "jobQueue": "arn:aws:batch:ap-south-1:521170656618:job-queue/mahesh-job-queue",
-    "parameters": {},
-    "platformCapabilities": [
-      "FARGATE"
+  "containerOrchestrationType": "ECS",
+  "containerProperties": {
+    "image": "public.ecr.aws/z7m3o1o1/bookworm_git:latest",
+    "command": [
+      "--",
+      "mahesh",
+      "is",
+      "testing",
+      "aws",
+      "batch"
     ],
-    "startedAt": 1740895280569,
-    "status": "RUNNING",
-    "tags": {}
-  }
+    "jobRoleArn": "arn:aws:iam::521170656618:role/snake-charmer-role-521170656618",
+    "executionRoleArn": "arn:aws:iam::521170656618:role/ecsTaskExecutionRole",
+    "volumes": [],
+    "environment": [
+      {
+        "name": "BUCKET_NAME",
+        "value": "snake-charmer-521170656618"
+      }
+    ],
+    "mountPoints": [],
+    "ulimits": [],
+    "resourceRequirements": [
+      {
+        "value": "1.0",
+        "type": "VCPU"
+      },
+      {
+        "value": "2048",
+        "type": "MEMORY"
+      }
+    ],
+    "secrets": [],
+    "networkConfiguration": {
+      "assignPublicIp": "ENABLED",
+      "interfaceConfigurations": []
+    },
+    "fargatePlatformConfiguration": {
+      "platformVersion": "LATEST"
+    },
+    "runtimePlatform": {
+      "operatingSystemFamily": "LINUX",
+      "cpuArchitecture": "ARM64"
+    }
+  },
+  "jobDefinitionArn": "arn:aws:batch:ap-south-1:521170656618:job-definition/mahesh-job-def-arm:5",
+  "jobDefinitionName": "mahesh-job-def-arm",
+  "parameters": {},
+  "platformCapabilities": [
+    "FARGATE"
+  ],
+  "revision": 5,
+  "status": "ACTIVE",
+  "tags": {},
+  "type": "container"
+}

@@ -3,6 +3,16 @@ m.db() {
     # docker push public.ecr.aws/z7m3o1o1/bookworm_git:latest
 }
 
+m.push() {
+    docker push public.ecr.aws/z7m3o1o1/bookworm_git:latest
+}
+
 m.runit() {
-    docker run --rm -e BUCKET_NAME=my-super-bucket --name mahesh public.ecr.aws/z7m3o1o1/bookworm_git:latest $@
+    set -x 
+
+    docker run --rm  \
+    -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
+    -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
+    -e AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN} \
+    --name mahesh public.ecr.aws/z7m3o1o1/bookworm_git:latest $@
 }
