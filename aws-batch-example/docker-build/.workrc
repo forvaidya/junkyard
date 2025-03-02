@@ -1,0 +1,7 @@
+m.db() {
+    docker build -t forvaidya/my-bookworm-image .
+}
+
+m.runit() {
+    docker run --rm -e BUCKET_NAME=my-super-bucket --name mahesh forvaidya/my-bookworm-image $@
+}
