@@ -1,0 +1,89 @@
+{
+    "attempts": [
+      {
+        "container": {
+          "taskArn": "arn:aws:ecs:ap-south-1:521170656618:task/AWSBatch-mahesh-compute-env-d53b5d19-24ae-360d-bee4-4cb470cab464/36a698f928fc418eb438b0eec350d298",
+          "exitCode": 0,
+          "logStreamName": "mahesh-job-def-arm/default/36a698f928fc418eb438b0eec350d298",
+          "networkInterfaces": [
+            {
+              "attachmentId": "3e84441c-7ecd-4221-a551-feadb24f6ca6",
+              "privateIpv4Address": "9.252.4.56"
+            }
+          ]
+        },
+        "startedAt": 1740920982463,
+        "stoppedAt": 1740921007223,
+        "statusReason": "Essential container in task exited"
+      }
+    ],
+    "container": {
+      "image": "public.ecr.aws/z7m3o1o1/bookworm_git:latest",
+      "command": [
+        "--",
+        "mahesh",
+        "is",
+        "testing",
+        "aws",
+        "batch"
+      ],
+      "jobRoleArn": "arn:aws:iam::521170656618:role/snake-charmer-role-521170656618",
+      "executionRoleArn": "arn:aws:iam::521170656618:role/ecsTaskExecutionRole",
+      "volumes": [],
+      "environment": [
+        {
+          "name": "BUCKET_NAME",
+          "value": "snake-charmer-521170656618"
+        }
+      ],
+      "mountPoints": [],
+      "ulimits": [],
+      "exitCode": 0,
+      "taskArn": "arn:aws:ecs:ap-south-1:521170656618:task/AWSBatch-mahesh-compute-env-d53b5d19-24ae-360d-bee4-4cb470cab464/36a698f928fc418eb438b0eec350d298",
+      "logStreamName": "mahesh-job-def-arm/default/36a698f928fc418eb438b0eec350d298",
+      "networkInterfaces": [
+        {
+          "attachmentId": "3e84441c-7ecd-4221-a551-feadb24f6ca6",
+          "privateIpv4Address": "9.252.4.56"
+        }
+      ],
+      "resourceRequirements": [
+        {
+          "value": "1.0",
+          "type": "VCPU"
+        },
+        {
+          "value": "2048",
+          "type": "MEMORY"
+        }
+      ],
+      "secrets": [],
+      "networkConfiguration": {
+        "assignPublicIp": "ENABLED"
+      },
+      "fargatePlatformConfiguration": {
+        "platformVersion": "LATEST"
+      },
+      "runtimePlatform": {
+        "operatingSystemFamily": "LINUX",
+        "cpuArchitecture": "ARM64"
+      }
+    },
+    "createdAt": 1740920947613,
+    "dependsOn": [],
+    "eksAttempts": [],
+    "jobArn": "arn:aws:batch:ap-south-1:521170656618:job/0aa21046-762d-4a20-be8e-f31ed5ae9739",
+    "jobDefinition": "arn:aws:batch:ap-south-1:521170656618:job-definition/mahesh-job-def-arm:5",
+    "jobId": "0aa21046-762d-4a20-be8e-f31ed5ae9739",
+    "jobName": "snake8",
+    "jobQueue": "arn:aws:batch:ap-south-1:521170656618:job-queue/mahesh-job-queue",
+    "parameters": {},
+    "platformCapabilities": [
+      "FARGATE"
+    ],
+    "startedAt": 1740920982463,
+    "status": "SUCCEEDED",
+    "statusReason": "Essential container in task exited",
+    "stoppedAt": 1740921007223,
+    "tags": {}
+  }
