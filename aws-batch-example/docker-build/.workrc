@@ -1,5 +1,6 @@
 m.db() {
     docker build -t public.ecr.aws/z7m3o1o1/bookworm_git:latest   .
+    # docker push public.ecr.aws/z7m3o1o1/bookworm_git:latest
 }
 
 m.runit() {

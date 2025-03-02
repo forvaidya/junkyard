@@ -18,8 +18,7 @@ RUN chmod a+x /app/do-task.sh
 ENV BUCKET_NAME=default-bucket
 
 
-ENTRYPOINT ["/bin/bash","-c","./do-task.sh \"$@\""]
-CMD ["--","--peace"]
+ENTRYPOINT ["/bin/bash","-c","./do-task.sh $@"]
 
 
 
