@@ -19,7 +19,7 @@ ENV BUCKET_NAME=default-bucket
 
 
 ENTRYPOINT ["/bin/bash","-c","./do-task.sh \"$@\""]
-CMD ["--", "--peace"]
+CMD ["--","--peace"]
 
 
 
