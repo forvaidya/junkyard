@@ -39,18 +39,21 @@
     "fargatePlatformConfiguration": {
       "platformVersion": "LATEST"
     },
+    "ephemeralStorage": {
+      "sizeInGiB": 139
+    },
     "runtimePlatform": {
       "operatingSystemFamily": "LINUX",
       "cpuArchitecture": "ARM64"
     }
   },
-  "jobDefinitionArn": "arn:aws:batch:ap-south-1:521170656618:job-definition/mahesh-job-def-arm:5",
+  "jobDefinitionArn": "arn:aws:batch:ap-south-1:521170656618:job-definition/mahesh-job-def-arm:8",
   "jobDefinitionName": "mahesh-job-def-arm",
   "parameters": {},
   "platformCapabilities": [
     "FARGATE"
   ],
-  "revision": 5,
+  "revision": 8,
   "status": "ACTIVE",
   "tags": {},
   "type": "container"

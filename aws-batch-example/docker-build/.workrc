@@ -4,6 +4,7 @@ m.db() {
 }
 
 m.push() {
+    docker-build % aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/z7m3o1o1  
     docker push public.ecr.aws/z7m3o1o1/bookworm_git:latest
 }
 
