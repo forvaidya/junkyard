@@ -30,7 +30,7 @@ services:
       - "traefik.http.routers.api.tls.certresolver=myresolver"
 
   dosa:
-    image: containous/dosa
+    image: containous/whoami
     container_name: dosa
     restart: always
     networks:
