@@ -24,22 +24,22 @@ services:
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=Host(`whoami.devops-ranch.in`)" # Replace with your domain
+      - "traefik.http.routers.api.rule=Host(`dosa.devops-ranch.in`)" # Replace with your domain
       - "traefik.http.routers.api.service=api@internal"
       - "traefik.http.routers.api.entrypoints=websecure"
       - "traefik.http.routers.api.tls.certresolver=myresolver"
 
-  whoami:
-    image: containous/whoami
-    container_name: whoami
+  dosa:
+    image: containous/dosa
+    container_name: dosa
     restart: always
     networks:
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.devops-ranch.in`)" # Replace with your subdomain
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.routers.dosa.rule=Host(`dosa.devops-ranch.in`)" # Replace with your subdomain
+      - "traefik.http.routers.dosa.entrypoints=websecure"
+      - "traefik.http.routers.dosa.tls.certresolver=myresolver"
 
 networks:
   reverse-proxy:
