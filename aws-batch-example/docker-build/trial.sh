@@ -11,6 +11,7 @@ sleep 6 &
 pid2=$!
 echo ${pid2}
 # Wait for both processes to complete
+
 wait $pid1
 wait $pid2
 
