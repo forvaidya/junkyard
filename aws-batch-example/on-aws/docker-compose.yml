@@ -10,9 +10,13 @@ services:
       - "--providers.docker=true"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
-      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.dnschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.dnschallenge.provider=cloudflare" # Replace with your DNS provider
       - "--certificatesresolvers.myresolver.acme.email=forvaidya@gmail.com" # Replace with your email
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    environment:
+      - CF_API_EMAIL=your-cloudflare-email@example.com # Replace with your Cloudflare email
+      - CF_API_KEY=your-cloudflare-api-key # Replace with your Cloudflare API key
     ports:
       - "80:80"
       - "443:443"
