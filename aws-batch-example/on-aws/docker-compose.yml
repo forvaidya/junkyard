@@ -24,7 +24,7 @@ services:
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=Host(`devops-ranch.in`)" # Replace with your domain
+      - "traefik.http.routers.api.rule=Host(`dosa.devops-ranch.in`)" # Replace with your domain
       - "traefik.http.routers.api.service=api@internal"
       - "traefik.http.routers.api.entrypoints=websecure"
       - "traefik.http.routers.api.tls.certresolver=myresolver"
