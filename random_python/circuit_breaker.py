@@ -144,13 +144,14 @@ class PrimeHunter:
         Attempt to find a prime number.
         Returns True if prime found, False if operation was skipped or failed.
         """
-        self.attempts += 1
-        
         # Check if circuit breaker allows operation
         if not self.circuit_breaker.allow():
+            # Don't increment attempts counter when circuit is open
             stats = self.circuit_breaker.get_stats()
-            print(f"⏸️  Attempt #{self.attempts}: Circuit breaker OPEN - skipping (retry in {stats['seconds_until_retry']:.1f}s)")
+            print(f"⏸️  Circuit breaker OPEN - operation blocked (retry in {stats['seconds_until_retry']:.1f}s)")
             return False
+        
+        self.attempts += 1
         
         # Generate random number and test for primality
         number = generate_random_number(self.min_num, self.max_num)
@@ -230,6 +231,15 @@ def main():
     try:
         # Main hunting loop
         while True:
+            # Check if circuit breaker is open and wait if needed
+            if not hunter.circuit_breaker.allow():
+                stats = hunter.circuit_breaker.get_stats()
+                wait_time = stats['seconds_until_retry']
+                if wait_time > 0:
+                    print(f"⏸️  Circuit breaker is OPEN. Waiting {wait_time:.1f} seconds until retry...")
+                    time.sleep(wait_time + 0.1)  # Add small buffer to ensure circuit is fully reset
+                    print(f"⏰ Wait complete! Resuming operations...")
+            
             hunter.hunt_prime()
             
             # Print status every 10 attempts
@@ -239,8 +249,9 @@ def main():
                 print(f"   Circuit breaker: {hunter.circuit_breaker.get_status_string()}")
                 print("")
             
-            # Sleep for 1 second before next attempt
-            time.sleep(1)
+            # Sleep for 1 second before next attempt (only when circuit is closed)
+            if hunter.circuit_breaker.allow():
+                time.sleep(1)
             
     except KeyboardInterrupt:
         print("\n\n🛑 Stopping prime hunter...")
