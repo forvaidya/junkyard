@@ -213,17 +213,17 @@ def main():
     """
     print("🚀 Prime Number Circuit Breaker Demo")
     print("=====================================")
-    print("Hunting for primes in range 5 to 1,000,000")
-    print("Circuit breaker trips after 3 consecutive non-primes")
-    print("Cooldown period: 120 seconds")
+    print("Hunting for primes in range 5 to 1,000,00")
+    print("Circuit breaker trips after 5 consecutive non-primes")
+    print("Cooldown period: 15 seconds")
     print("Checking every 1 second...\n")
     
     # Create prime hunter with circuit breaker
     hunter = PrimeHunter(
-        failure_threshold=3,
-        cooldown_seconds=120,  # 2 minutes
+        failure_threshold=5,
+        cooldown_seconds=15,  # 2 minutes
         min_num=5,
-        max_num=1000000
+        max_num=100000
     )
     
     start_time = time.time()
